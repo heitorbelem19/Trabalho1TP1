@@ -49,6 +49,25 @@ public:
 	string getData();
 };
 
+class Email{
+private:
+    string email;
+    void validar(string email) throw(invalid_argument);
+public:
+    void setEmail(string email)throw(invalid_argument);
+    string getEmail();
+
+};
+
+class Senha{
+private:
+    string senha;
+    void validar(string senha) throw (invalid_argument);
+public:
+    void setSenha(string senha)throw (invalid_argument)
+    string getSenha();
+};
+
 class Texto{
 private:
 	string texto;
@@ -67,5 +86,4 @@ public:
 	string getIdioma();
 };
 
-
-
+#endif // _DOMINIO_H_INCLUDED
