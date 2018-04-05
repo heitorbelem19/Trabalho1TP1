@@ -58,6 +58,8 @@ void Sobrenome::validar(string sobrenome)throw (invalid_argument){
 //------------------------------------------------------------------------
 
 
+
+
 //Métodos da Classe Telefone
 void Telefone::setTelefone(string telefone)throw (invalid_argument){
     this->telefone = telefone;
@@ -140,8 +142,8 @@ void Email::validar(string email)throw (invalid_argument){
     }
 }
 //-------------------------------------------------------------------------
-   
-   
+
+
 //Métodos da Classe Senha
 void Senha::setSenha(string senha)throw (invalid_argument){
     this->senha = senha;
