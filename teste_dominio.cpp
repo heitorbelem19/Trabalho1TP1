@@ -1,40 +1,83 @@
 #include "teste.h"
-using namespace std;
-
-void TUNome::testarSucesso(){
-    try{
-        nome->setNome("Heitor");
-        if(nome->getNome() !=  "Heitor"){
-            estado = Falha;
-        }
-        else
-            cout << "SUCESSO\n";
-    }catch(invalid_argument){
-        estado = Falha;
-    }
-}
-
-void TUNome::testarFalha(){
-    try{
-        nome->setNome("HEitor");
-        estado = Falha;
-    }catch(invalid_argument){
-        cout << "FALHA\n";
-        return;
-    }
-}
 
 void TUNome::setUp(){
     nome = new Nome("");
-    estado = Sucesso;
+    estado = SUCESSO;
 }
 
 void TUNome::tearDown(){
     delete nome;
 }
-int TUNome::run(){
+
+void TUNome::testarCenarioSucesso(){
+    try{
+        nome->setNome("Heitor");
+        cout << "SUCESSO NOME"<<endl;
+        if (nome->getNome() != "Heitor")
+            estado = FALHA;
+    }
+    catch(invalid_argument ){
+        estado = FALHA;
+    }
+}
+
+void TUNome::testarCenarioFalha(){
+    try{
+        nome->setNome(" Heitor");
+        estado = FALHA;
+    }
+    catch(invalid_argument ){
+        cout << "FALHA NOME"<<endl;
+        return;
+    }
+}
+
+void TUNome::runNome(){
     setUp();
-    testarSucesso();
-    testarFalha();
+    testarCenarioSucesso();
+    testarCenarioFalha();
     tearDown();
 }
+
+//---------------------------------------------------
+
+//Métodos do teste de Unidade para Sobrenome
+void TUSobrenome::setUp(){
+    sobrenome = new Sobrenome("");
+    estado = SUCESSO;
+}
+
+void TUSobrenome::tearDown(){
+    delete sobrenome;
+}
+
+void TUSobrenome::testarCenarioSucesso(){
+    try{
+        sobrenome->setSobrenome("Heitor");
+        cout << "SUCESSO SOBRENOME"<<endl;
+        if (sobrenome->getSobrenome() != "Heitor")
+            estado = FALHA;
+    }
+    catch(invalid_argument ){
+        estado = FALHA;
+    }
+}
+
+void TUSobrenome::testarCenarioFalha(){
+    try{
+        sobrenome->setSobrenome("HEitor");
+        estado = FALHA;
+    }
+    catch(invalid_argument ){
+        cout << "FALHA SOBRENOME"<<endl;
+        return;
+    }
+}
+
+void TUSobrenome::runSobrenome(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+}
+
