@@ -6,8 +6,8 @@
 #include <string.h>
 #include<cctype>
 using namespace std;
-//Classes dos dominios
 
+//Classes dos Testes de Unidade de dominios
 class TUNome{
 private:
     //const static int VALOR_VALIDO   = 20;
@@ -19,7 +19,6 @@ private:
     void testarCenarioFalha();
     const char valido[20] = "Heitor";
     const char invalido[20] = "HEitor";
-
 public:
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -69,7 +68,6 @@ private:
     void testarCenarioFalha();
     const char valido[20] = "SHIN QL 4";
     const char invalido[20] = " SQS 12 ";
-
 public:
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -85,7 +83,6 @@ private:
     void testarCenarioFalha();
     const char valido[20] = "21/12/2012";
     const char invalido[20] = "30/02/2015";
-
 public:
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -146,7 +143,6 @@ private:
     void tearDown();
     void testarCenarioSucesso();
     void testarCenarioFalha();
-
 public:
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -154,7 +150,6 @@ public:
 };
 
 class TUSenha{
-
 private:
     Senha *senha;
     int estado;
@@ -164,17 +159,15 @@ private:
     const char valido[20] = "He1tor12";
     const char invalido[20] = "HEit0r";
 public:
-
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
     void runSenha();
 };
-
 //***************************************************************************
 //***************************************************************************
 
 
-//Classes das Entidades
+//Classes dos Testes de Unidade das Entidades
 class TULeitor{
 private:
     Leitor *leitor;
@@ -198,7 +191,6 @@ private:
     const char ValidoData[14] = "30/01/2000";
 public:
     void runDev();
-
 };
 
 class TUAdm{
@@ -239,8 +231,6 @@ private:
     const char ValidoData[14] = "30/01/2000";
 public:
     void runVocabulario();
-
-
 };
 
 class TUDefinicao{
@@ -253,6 +243,6 @@ private:
     const char ValidoData[14] = "30/01/2000";
 public:
     void runDefinicao();
-
 };
+
 #endif
