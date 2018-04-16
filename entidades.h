@@ -10,10 +10,11 @@
  */
 class Leitor{
 private:
-Nome nome;
-Sobrenome sobrenome;
-Senha senha;
-Email email;
+    Nome nome;
+    Sobrenome sobrenome;
+    Senha senha;
+    Email email;
+    bool CheckSubstring(string firstString,string secondString);
 public:
     Leitor();
     bool Criar_leitor(string nome,string sobrenome,string email, string senha);
