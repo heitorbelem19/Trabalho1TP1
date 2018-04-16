@@ -1,158 +1,223 @@
 #ifndef _DOMINIO_H_INCLUDED
 #define _DOMINIO_H_INCLUDED
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string.h>
+#include<cctype>
 using namespace std;
 
+/**
+ * Definicao da classe nome que sera utilizada pelas entidades
+ */
 class Nome{
 private:
     string name;
-    void validar(string nome)throw (invalid_argument);
+    bool validar(string nome);
 public:
-    Nome();
+    Nome(){};
     Nome(string nome){setNome(nome);}
     ~Nome(){};
-    inline void setNome(string nome)throw (invalid_argument){
-        validar(nome);
-        this->name = nome;
+    inline bool setNome(string nome){
+        if(validar(nome)){
+            this->name = nome;
+            return true;
+        }
+        else
+            return false;
     }
     inline string getNome(){return name;}
 };
 
+/**
+ * Definicao da classe sobrenome que é identica a da classe nome
+ */
 class Sobrenome{
 private:
 	string last_name;
-	void validar(string sobrenome)throw (invalid_argument);
+	bool validar(string sobrenome);
 public:
-    Sobrenome();
+    Sobrenome(){};
     Sobrenome(string sobrenome){setSobrenome(sobrenome);}
     ~Sobrenome(){};
-	inline void setSobrenome(string sobrenome)throw (invalid_argument){
-        validar(sobrenome);
-        this->last_name = sobrenome;
+	inline bool setSobrenome(string sobrenome){
+        if(validar(sobrenome)){
+            this->last_name = sobrenome;
+            return true;
+        }
+        else
+            return false;
     }
 	inline string getSobrenome(){return last_name;}
 };
 
+/**
+ * Definicao da classe Telefone que sera utilizada pelas entidades
+ */
 class Telefone{
 private:
 	string telephone;
-	void validar(string telefone)throw (invalid_argument);
+	bool validar(string telefone);
 public:
-    Telefone();
+    Telefone(){};
     Telefone(string telefone){setTelefone(telefone);}
     ~Telefone(){};
-	inline void setTelefone(string telefone)throw (invalid_argument){
-        validar(telefone);
-        this->telephone = telefone;
+	inline bool setTelefone(string telefone){
+        if(validar(telefone)){
+            this->telephone = telefone;
+            return true;
+        }
+        else
+            return false;
 	}
 	inline string getTelefone(){return telephone;}
 };
 
+/**
+ * Definicao da classe Endereco que sera utilizada pelas entidades
+ */
 class Endereco{
 private:
 	string address;
-	void validar(string endereco)throw (invalid_argument);
+	bool validar(string endereco);
 public:
-    Endereco();
+    Endereco(){};
     Endereco(string endereco){setEndereco(endereco);}
     ~Endereco(){};
-	inline void setEndereco(string endereco)throw (invalid_argument){
-        validar(endereco);
-        this->address = endereco;
+	inline bool setEndereco(string endereco){
+        if(validar(endereco)){
+            this->address = endereco;
+            return true;
+        }
+        return false;
 	}
 	inline string getEndereco(){return address;}
 };
 
+/**
+ * Definicao da classe Data que sera utilizada pelas entidades
+ */
 class Data{
 private:
 	string date;
-	void validar(string data)throw (invalid_argument);
+	bool validar(string data);
 public:
-    Data();
+    Data(){};
     Data(string data){setData(data);}
     ~Data(){};
-	inline void setData(string data)throw(invalid_argument){
-        validar(data);
-        this->date = data;
+	inline bool setData(string data){
+        if(validar(data)){
+            this->date = data;
+            return true;
+        }
+        return false;
 	}
 	inline string getData(){return date;}
 };
 
+/**
+ * Definicao da classe Email que sera utilizada pelas entidades
+ */
 class Email{
 private:
     string email_address;
-    void validar(string email) throw(invalid_argument);
+    bool validar(string email);
 public:
-    Email();
+    Email(){};
     Email(string email){setEmail(email);}
     ~Email(){};
-    inline void setEmail(string email)throw(invalid_argument){
-        validar(email);
-        this->email_address = email;
+    inline bool setEmail(string email){
+        if(validar(email)){
+            this->email_address = email;
+            return true;
+        }
+        return false;
     }
     inline string getEmail(){return email_address;}
 };
 
+/**
+ * Definicao da classe Senha que sera utilizada pelas entidades
+ */
 class Senha{
 private:
     string password;
-    void validar(string senha) throw (invalid_argument);
+    bool validar(string senha);
 public:
-    Senha();
+    Senha(){};
     Senha(string senha){setSenha(senha);}
     ~Senha(){};
-    inline void setSenha(string senha)throw (invalid_argument){
-        validar(senha);
-        this->password = senha;
+    inline bool setSenha(string senha){
+        if(validar(senha)){
+            this->password = senha;
+            return true;
+        }
+        else
+            return false;
     }
     inline string getSenha(){return password;}
 };
 
+/**
+ * Definicao da classe Texto que sera utilizada pelas entidades
+ */
 class Texto{
 private:
 	string text;
-	void validar(string texto)throw (invalid_argument);
+	bool validar(string texto);
 public:
-    Texto();
+    Texto(){};
     Texto(string texto){setTexto(texto);}
     ~Texto(){};
-	inline void setTexto(string texto)throw (invalid_argument){
-        validar(texto);
-        this->text = texto;
+	inline bool setTexto(string texto){
+        if(validar(texto)){
+            this->text = texto;
+            return true;
+        }
+        return false;
 	}
 	inline string getTexto(){return text;}
 };
 
-
+/**
+ * Definicao da classe Idioma que sera utilizada pelas entidades
+ */
 class Idioma{
 private:
 	string language;
-	void validar(string idioma)throw (invalid_argument);
+	bool validar(string idioma);
 public:
-    Idioma();
+    Idioma(){};
     Idioma(string idioma){setIdioma(idioma);}
     ~Idioma(){};
-	inline void setIdioma(string idioma)throw (invalid_argument){
-        validar(idioma);
-        this->language = idioma;
-	}
+	inline bool setIdioma(string idioma){
+        if(validar(idioma)){
+            this->language = idioma;
+            return true;
+        }
+        return false;
+    }
 	inline string getIdioma(){return language;}
 };
 
-
+/**
+ * Definicao da classe Termo que sera utilizada pelas entidades
+ */
 class Termo{
 private:
     string term;
-    void validar(string termo) throw (invalid_argument);
+    bool validar(string termo);
 public:
-    Termo();
+    Termo(){};
     Termo(string termo){setTermo(termo);}
     ~Termo(){};
-    inline void setTermo(string termo)throw (invalid_argument){
-        validar(termo);
-        this->term = termo;
+    inline bool setTermo(string termo){
+        if(validar(termo)){
+            this->term = termo;
+            return true;
+        }
+        return false;
     }
     inline string getTermo(){return term;}
 };
 
 #endif // _DOMINIO_H_INCLUDED
+
