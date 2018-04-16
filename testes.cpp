@@ -1,4 +1,4 @@
-#include "testes.h"
+#include "teste.h"
 
 //Métodos dos Testes de Unidade de Dominio
 
@@ -86,7 +86,7 @@ void TUTelefone::testarCenarioSucesso(){
             estado = FALHA;
     }
     catch(int x){
-        estado = FALHA;
+        cout << "FALHA TELEFONE: Numero de telefone invalido\n" << endl;
     }
 }
 void TUTelefone::testarCenarioFalha(){
@@ -96,7 +96,6 @@ void TUTelefone::testarCenarioFalha(){
     }
     catch(int x){
         cout << "FALHA TELEFONE\n"<<endl;
-        return;
     }
 }
 void TUTelefone::runTelefone(){
@@ -126,9 +125,13 @@ void TUEndereco::testarCenarioFalha(){
         endereco= new Endereco(invalido);
         estado = FALHA;
     }
-    catch(int x){
-        cout << "FALHA ENDERECO\n"<<endl;
-        return;
+   catch(int x){
+        if(x == 1)
+            cout << "FALHA ENDERECO: Endereco ultrapassa limite permitido\n" << endl;
+        else if(x == 2)
+            cout << "FALHA ENDERECO: Nao pode haver espacos em branco no comeco ou no fim do campo Endereco\n" << endl;
+        else if(x == 3)
+            cout << "FALHA ENDERECO: Nao pode haver espacos em branco seguidos\n" << endl;
     }
 }
 void TUEndereco::runEndereco(){
@@ -158,9 +161,26 @@ void TUData::testarCenarioFalha(){
         data= new Data(invalido);
         estado = FALHA;
     }
-    catch(int x){
-        cout << "FALHA DATA\n"<<endl;
-        return;
+       catch (int x){
+        if (x == 1)
+            cout << "FALHA DATA: Formato errado de data\n" << endl;
+        else if(x == 2)
+            cout << "FALHA DATA: Formato invalido para os D,M,A\n\n" << endl;
+        else if(x == 3)
+            cout << "FALHA DATA: Dia 0 nao existe\n" << endl;
+        else if(x == 4)
+            cout << "FALHA DATA: Mes com no maximo 31 dias\n" << endl;
+        else if(x == 5)
+            cout << "FALHA DATA: Mes com no maximo 30 dias\n" << endl;
+        else if(x == 6)
+            cout << "FALHA DATA: Dia inexistente\n" << endl;
+        else if(x == 7)
+            cout << "FALHA DATA: Dia inexistente\n" << endl;
+        else if(x == 8)
+            cout << "FALHA DATA: Mes inexistente\n" << endl;
+        else if(x == 8)
+            cout << "FALHA DATA: Ano fora dos parametros\n" << endl;
+
     }
 }
 void TUData::runData(){
@@ -190,9 +210,17 @@ void TUEmail::testarCenarioFalha(){
         email = new Email("invalido");
         estado = FALHA;
     }
-    catch(int x){
-        cout << "FALHA EMAIL\n"<<endl;
-        return;
+     catch(int x){
+        if (x == 1)
+            cout << "FALHA EMAIL: Deve conter arroba\n" << endl;
+        else if(x == 2)
+            cout << "FALHA EMAIL: Nao pode existir espaco no comeco ou no final da parte local\n" << endl;
+        else if(x == 3)
+            cout << "FALHA EMAIL: Nao pode conter hifens nesses lugares\n" << endl;
+        else if(x == 4)
+            cout << "FALHA EMAIL: O dominio nao pode conter caracteres especiais" << endl;
+        else if(x == 5)
+            cout << "FALHA EMAIL: O dominio nao pode ser so de numeros" << endl;
     }
 }
 void TUEmail::runEmail(){
@@ -223,8 +251,7 @@ void TUTexto::testarCenarioFalha(){
         estado = FALHA;
     }
     catch(int x){
-        cout << "FALHA TEXTO\n"<<endl;
-        return;
+        cout << "FALHA TEXTO: Texto maior que o limite permitido\n" << endl;
     }
 }
 void TUTexto::runTexto(){
@@ -254,9 +281,8 @@ void TUIdioma::testarCenarioFalha(){
         idioma = new Idioma(invalido);
         estado = FALHA;
     }
-    catch(int x ){
-        cout << "FALHA IDIOMA\n"<<endl;
-        return;
+     catch(int x){
+        cout << "FALHA IDIOMA: Idioma selecionado nao existe\n" << endl;
     }
 }
 void TUIdioma::runIdioma(){
@@ -287,8 +313,7 @@ void TUTermo::testarCenarioFalha(){
         estado = FALHA;
     }
     catch(int x){
-        cout << "FALHA TERMO\n"<<endl;
-        return;
+        cout << "FALHA TERMO: Termo selecionado nao existe\n"<<endl;
     }
 }
 void TUTermo::runTermo(){
@@ -318,9 +343,13 @@ void TUSenha::testarCenarioFalha(){
         senha = new Senha(invalido);
         estado = FALHA;
     }
-    catch(int x){
-        cout << "FALHA SENHA\n"<<endl;
-        return;
+      catch(int x){
+        if (x == 1)
+            cout << "FALHA SENHA: A senha deve conter exatamente 8 caracteres\n" << endl;
+        else if(x == 2)
+            cout << "FALHA SENHA: A senha nao pode conter caracteres especiais\n" << endl;
+        else if(x == 3)
+            cout << "FALHA SENHA: A senha deve contar pelo menos uma letra maiúscula,uma minúscula e um digito\n" << endl;
     }
 }
 void TUSenha::runSenha(){
