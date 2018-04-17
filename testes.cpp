@@ -24,11 +24,11 @@ void TUNome::testarCenarioFalha(){
     }
     catch(int x){
         if (x == 1)
-            cout << "FALHA NOME: Primeira letra deve ser Maiuscula!" << endl;
+            cout << "FALHA NOME: Primeira letra deve ser Maiuscula\n" << endl;
         else if(x == 2)
-            cout << "FALHA NOME: Nome ultrapassa limite permitido" << endl;
+            cout << "FALHA NOME: Nome ultrapassa limite permitido\n" << endl;
         else if(x == 3)
-            cout << "FALHA NOME: Nao pode possuir mais de uma letra maiuscula ou caracteres especiais!" << endl;
+            cout << "FALHA NOME: Nao pode possuir mais de uma letra maiuscula ou caracteres especiais\n" << endl;
     }
 }
 void TUNome::runNome(){
@@ -60,11 +60,11 @@ void TUSobrenome::testarCenarioFalha(){
     }
     catch(int x){
         if(x==1)
-            cout << "FALHA SOBRENOME: Primeira letra deve ser Maiuscula! " << endl;
+            cout << "FALHA SOBRENOME: Primeira letra deve ser Maiuscula\n" << endl;
         else if(x==2)
-            cout << "FALHA SOBRENOME: Sobrenome ultrapassa limite permitido" << endl;
+            cout << "FALHA SOBRENOME: Sobrenome ultrapassa limite permitido\n" << endl;
         else
-            cout << "FALHA SOBRENOME: Nao pode possuir mais de uma letra maiuscula ou caracteres especiais!" <<endl;
+            cout << "FALHA SOBRENOME: Nao pode possuir mais de uma letra maiuscula ou caracteres especiais\n" <<endl;
     }
 }
 void TUSobrenome::runSobrenome(){
@@ -86,7 +86,7 @@ void TUTelefone::testarCenarioSucesso(){
             estado = FALHA;
     }
     catch(int x){
-        cout << "FALHA TELEFONE: Numero de telefone invalido\n" << endl;
+        estado = FALHA;
     }
 }
 void TUTelefone::testarCenarioFalha(){
@@ -95,7 +95,7 @@ void TUTelefone::testarCenarioFalha(){
         estado = FALHA;
     }
     catch(int x){
-        cout << "FALHA TELEFONE\n"<<endl;
+       cout << "FALHA TELEFONE: Numero de telefone invalido\n" << endl;
     }
 }
 void TUTelefone::runTelefone(){
