@@ -9,8 +9,8 @@ int main () {
 
   // Testes para as estruturas de dominio (um caso de falha e um de sucesso
 
-  cout << "Testes dos dominios" << endl;
-  cout << "----------------------------------------------------------------------------------\n "<< endl;
+  cout << "\n**************Testes dos Dominios**************" << endl;
+  cout << "-----------------------------------------------\n "<< endl;
 
   TUNome n1;
   n1.runNome();
@@ -42,11 +42,12 @@ int main () {
   TUTermo t3;
   t3.runTermo();
 
-  //----------------------------------------------------------------------------------
+  cout << "\n "<< endl;
 
   //Casos de teste para as entidades onde é mostrado o caso de sucesso
-  cout << "Testes das entidades" << endl;
-  cout << "----------------------------------------------------------------------------------\n "<< endl;
+  cout << "**************Testes das Entidades**************" << endl;
+  cout << "------------------------------------------------\n "<< endl;
+
   TULeitor l1;
   l1.runLeitor();
 
@@ -60,18 +61,13 @@ int main () {
   t4.runEntidadeTermo();
 
   TUVocabulario v1;
-
   v1.runVocabulario();
 
   TUDefinicao def;
-
   def.runDefinicao();
 
-  //Leitor leitor = Leitor();
-  //leitor.Criar_leitor("HEitor","Lindo","felipeayres@gmail.com","His4efgt");
-  //Desenvolvedor dev = Desenvolvedor();
-  //dev.Criar_desenvolvedor(nome.getNome(),sobrenome.getSobrenome(),"felipeayres@gmail.com","Hgs4efgt",data.getData());
-  //cout <<"funcionou"<< endl;
+  cout << "\n"<<endl;
 
   return 0;
- }
+
+}
