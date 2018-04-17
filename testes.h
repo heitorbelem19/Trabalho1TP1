@@ -18,7 +18,7 @@ private:
     void testarCenarioSucesso();
     void testarCenarioFalha();
     const char valido[20] = "Heitor";
-    const char invalido[20] = "HEitor";
+    const char invalido[20] = "heitor";
 public:
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
@@ -187,7 +187,7 @@ private:
     void teardown();
     void testarCenarioSucesso();
     const char ValidoNome[20] = "Heitor",ValidoSobrenome[20] = "Belem";
-    const char ValidoSenha[20] = "Hie4ghyt",ValidoEmail[50] ="f1lipeayres@gmail.com";
+    const char ValidoSenha[20] = "HEitor12",ValidoEmail[50] ="f1lipeayres@gmail.com";
     const char ValidoData[14] = "30/01/2000";
 public:
     void runDev();
@@ -200,7 +200,7 @@ private:
     void teardown();
     void testarCenarioSucesso();
     const char ValidoNome[20] = "Heitor",ValidoSobrenome[20] = "Belem";
-    const char ValidoSenha[20] = "Hie4ghyt",ValidoEmail[50] ="f1lipeayres@gmail.com";
+    const char ValidoSenha[20] = "12HeITOR",ValidoEmail[50] ="f1lipeayres@gmail.com";
     const char ValidoData[14] = "30/01/2000";
     const char ValidoEndereco[30] = "SQS 116", ValidoTelefone[14] = "61 9123-8321";
 public:
