@@ -220,4 +220,3 @@ public:
 };
 
 #endif // _DOMINIO_H_INCLUDED
-
