@@ -12,6 +12,10 @@ Leitor::Leitor(){
     this->email = Email();
 }
 
+/**
+ * Funcao destinada a verificacao da existencia da string nome, na string senha
+ * @return Retorna true se o nome estiver contido na senha e false se nao estiver.
+ */
 bool Leitor::CheckSubstring(string firstString,string secondString){
     for (unsigned int i = 0; i < firstString.size(); i++){
         int j = 0;
@@ -26,11 +30,7 @@ bool Leitor::CheckSubstring(string firstString,string secondString){
         }
     }
     return false;
-}/**
- * Funcao destinada a verificacao da existencia da string nome, na string senha
- * @return Retorna true se o nome estiver contido na senha e false se nao estiver.
- */
-
+}
 
 /**
  * Funcao destinada a criacao do Leitor indicado pelos campos informados pelos argumentos
@@ -138,7 +138,4 @@ bool Definicao::Criar_definicao(string texto, string data){
 }
 //*****************************************************************************
 //*****************************************************************************
-
-
-
 
