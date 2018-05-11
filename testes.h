@@ -1,5 +1,5 @@
-#ifndef TESTES_H_INCLUDED
-#define TESTES_H_INCLUDED
+#ifndef TESTE_H_INCLUDED
+#define TESTE_H_INCLUDED
 #include "dominio.h"
 #include "entidades.h"
 #include <iostream>
@@ -175,7 +175,7 @@ private:
     void teardown();
     void testarCenarioSucesso();
     const char ValidoNome[20] = "Heitor",ValidoSobrenome[20] = "Belem";
-    const char ValidoSenha[20] = "Hie4ghyt",ValidoEmail[50] ="f1lipeayres@gmail.com";
+    const char ValidoSenha[20] = "12HeITOR",ValidoEmail[50] ="f1lipeayres@gmail.com";
 public:
     void runLeitor();
 };
@@ -187,7 +187,7 @@ private:
     void teardown();
     void testarCenarioSucesso();
     const char ValidoNome[20] = "Heitor",ValidoSobrenome[20] = "Belem";
-    const char ValidoSenha[20] = "HEitor12",ValidoEmail[50] ="f1lipeayres@gmail.com";
+    const char ValidoSenha[20] = "HeItor12",ValidoEmail[50] ="f1lipeayres@gmail.com";
     const char ValidoData[14] = "30/01/2000";
 public:
     void runDev();
@@ -240,7 +240,7 @@ private:
     void teardown();
     void testarCenarioSucesso();
     const char ValidoTexto[50] = "A1b2c#A1b2c#A1b2c#A1b2c#A1b2c#";
-    const char ValidoData[14] = "30/01/2000";
+    const char ValidoData[14] = "31/01/2000";
 public:
     void runDefinicao();
 };
