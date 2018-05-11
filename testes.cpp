@@ -369,8 +369,7 @@ void TULeitor::teardown(){
 void TULeitor::testarCenarioSucesso(){
     try {
         leitor = new Leitor();
-        if (!leitor->Criar_leitor(ValidoNome,ValidoSobrenome,ValidoEmail,ValidoSenha))
-                throw 4;
+        leitor->Criar_leitor(ValidoNome,ValidoSobrenome,ValidoEmail,ValidoSenha);
         cout << "SUCESSO LEITOR"<<endl;
     }catch(int x){
         cout << "FALHA LEITOR"<< endl;
@@ -389,8 +388,7 @@ void TUDev::teardown(){
 void TUDev::testarCenarioSucesso(){
     try {
         dev = new Desenvolvedor();
-        if (!dev->Criar_desenvolvedor(ValidoNome,ValidoSobrenome,ValidoEmail,ValidoSenha,ValidoData))
-                throw 4;
+        dev->Criar_desenvolvedor(ValidoNome,ValidoSobrenome,ValidoEmail,ValidoSenha,ValidoData);
         cout << "SUCESSO DESENVOLVEDOR"<<endl;
     }catch(int x){
         cout << "FALHA DESENVOLVEDOR"<< endl;
@@ -409,8 +407,7 @@ void TUAdm::teardown(){
 void TUAdm::testarCenarioSucesso(){
     try {
         adm = new Administrador();
-        if (!adm->Criar_administrador(ValidoNome,ValidoSobrenome,ValidoEmail,ValidoSenha,ValidoData,ValidoTelefone,ValidoEndereco))
-                throw 4;
+        adm->Criar_administrador(ValidoNome,ValidoSobrenome,ValidoEmail,ValidoSenha,ValidoData,ValidoTelefone,ValidoEndereco);
         cout << "SUCESSO ADMINISTRADOR"<<endl;
     }catch(int x){
         cout << "FALHA ADMINISTRADOR"<< endl;
@@ -428,8 +425,7 @@ void TUEntidadeTermo::teardown(){
 void TUEntidadeTermo::testarCenarioSucesso(){
     try {
         termo = new EntidadeTermo();
-        if (!termo->Criar_termo(ValidoNome,ValidoTermo,ValidoData))
-                throw 4;
+        termo->Criar_termo(ValidoNome,ValidoTermo,ValidoData);
         cout << "SUCESSO ENTIDADE TERMO"<<endl;
     }catch(int x){
         cout << "FALHA ENTIDADE TERMO"<< endl;
@@ -448,8 +444,7 @@ void TUVocabulario::teardown(){
 void TUVocabulario::testarCenarioSucesso(){
     try{
         vocab = new Vocabulario();
-        if(!vocab->Criar_vocabulario(ValidoNome,ValidoIdioma,ValidoData))
-            throw 4;
+        vocab->Criar_vocabulario(ValidoNome,ValidoIdioma,ValidoData);
         cout << "SUCESSO VOCABULARIO"<<endl;
         }
     catch(int x){
@@ -470,8 +465,8 @@ void TUDefinicao::teardown(){
 void TUDefinicao::testarCenarioSucesso(){
     try{
         definicao = new Definicao();
-        if(!definicao->Criar_definicao(ValidoTexto,ValidoData))
-            throw 4;
+        definicao->Criar_definicao(ValidoTexto,ValidoData);
+
         cout << "SUCESSO DEFINICAO"<<endl;
         }
     catch(int x){
