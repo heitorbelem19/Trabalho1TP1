@@ -2,157 +2,110 @@
 #include <iostream>
 #include <string.h>
 #include<cctype>
-using namespace std;
+
 
 //Métodos da Classe Nome
-/**
- * A funcao de validar o nome verifica se ela possui letra maiuscula no comeco
- * e em qualquer outra posiçao alem de ver se ultrapassa o limite de caracteres
- * @param nome eh a palavra que se deseja validar
- * @return retorna se o nome indicado eh valido
- */
-bool Nome::validar(string nome){
+
+void Nome::validar(string nome){
     int indice = 1;
-    bool val = true;
     if(islower(nome[0])){
-        val = false;
         throw 1;
     }
     if(nome.length() > 20){
-        val = false;
         throw 2;
     }
     while(nome[indice] != '\0'){
         if(islower(nome[indice]) && isalpha(nome[indice]))
             indice++;
         else{
-            val = false;
             throw 3;
         }
     }
-    return val;
 }
 //--------------------------------------------------------------------
 
 
 //Métodos da Classe Sobrenome
-/**
- * Eh estruturado da mesma forma que a funcao de validar nome
- * @return retorna se o sobrenome indicado eh valido
- */
-bool Sobrenome::validar(string sobrenome){
-    bool val = true;
+
+void Sobrenome::validar(string sobrenome){
     int indice = 1;
     if(islower(sobrenome[0])){
-        val = false;
         throw 1;
     }
     if(sobrenome.length() > 20){
-        val = false;
         throw 2;
     }
     while(sobrenome[indice] != '\0'){
         if(islower(sobrenome[indice]) && isalpha(sobrenome[indice]))
             indice++;
         else{
-            val = false;
             throw 3;
         }
     }
-    return val;
 }
 //------------------------------------------------------------------------
 
 
 //Métodos da Classe Telefone
-/**
- * A funcao de validar o telefone verifica se possui a formatacao correta, alem de
- *possuir somente digitos e respeitar o limite normal de um numero
- * @param telefone eh a palavra que se deseja validar
- * @return retorna se o telefone indicado eh valido
- */
-bool Telefone::validar(string telefone){
-    bool val = true;
+
+void Telefone::validar(string telefone){
     for(unsigned int indice = 0; indice < telefone.length() - 1; indice++){
         if(indice == 0 || indice == 1){
             if(!isdigit(telefone[indice])){
-                val = false;
                 throw 1;
             }
         }
         else if (indice == 2){
             if(!isspace(telefone[indice])){
-                val = false;
                 throw 2;
             }
         }
         else if (indice == 7){
             if(telefone[indice] != '-'){
-                val = false;
                 throw 3;
             }
         }
         else{
             if(!isdigit(telefone[indice])){
-                val = false;
                 throw 4;
             }
         }
     }
-    return val;
 }
 //------------------------------------------------------------------------
 
 
 //Métodos da Classe Endereço
-/**
- * A funcao de validar o endereco verifica se ele possui o limite de caracteres
- * e se ha espacoes em branco no comeco, no final ou seguidos
- * @param endereco  palavra que se deseja validar
- * @return retorna se o endereco indicado eh valido
- */
-bool Endereco::validar(string endereco){
-    bool val = true;
+
+void Endereco::validar(string endereco){
     if(endereco.length() > 20){
-        val = false;
         throw 1;
     }
     if(isspace(endereco[0]) || isspace(endereco[endereco.length()-1])){
-        val = false;
         throw 2;
     }
     for(int indice = 0; indice < endereco.length(); indice++){
         if(isspace(endereco[indice]) && isspace(endereco[indice + 1])){
-            val = false;
             throw 3;
         }
     }
-    return val;
 }
 //------------------------------------------------------------------------
 
 
 //Métodos da Classe Data
-/**
- * A funcao de validar a data  verifica se ela possui a formatacao correta
- * e respeita os limites de dias que os meses possuem.Inclusive no ano bisexto
- * @param data eh a palavra que se deseja validar
- * @return retorna se a data indicada eh valida
- */
-bool Data::validar(string data) {
-    bool val = true;
+
+void Data::validar(string data) {
     int dia, mes, ano;
     bool bissexto;
     for(int indice = 0; indice < data.length()-1;indice++){
         if(indice == 2 || indice == 5){
             if(data[indice] != '/'){
-                val = false;
                 throw 1;
             }
         }
         else{
             if(!isdigit(data[indice])){
-                val = false;
                 throw 2;
             }
         }
@@ -167,19 +120,16 @@ bool Data::validar(string data) {
         ano  = ((data[6] - '0')* 1000) + ((data[7] - '0') * 100) + ((data[8] - '0')*10) + (data[9]-'0');
     }
     if (dia == 0){
-        val = false;
         throw 3;
     }
 
     if(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12){
         if(dia > 31){
-            val = false;
             throw 4;
         }
     }
     else if(mes == 4 || mes == 6 || mes == 9 || mes == 11){
         if (dia > 30){
-            val = false;
             throw 5;
         }
     }
@@ -189,58 +139,39 @@ bool Data::validar(string data) {
         }
         if(bissexto){
             if(dia > 29){
-                val = false;
                 throw 6;
             }
         }
         else{
             if(dia > 28){
-                val = false;
                 throw 7;
             }
         }
     }
     else{
-        val = false;
         throw 8;
     }
     if(ano < 1900 || ano > 2099){
-        val = false;
         throw 9;
     }
-    return val;
 }
 //-----------------------------------------------------------
 
 
 //Metodos de classe para o correio eletronico
-/**
- * Composto por parte local e domínio separados por arroba. A parte local
- *pode conter letras (A – Z a – z), dígitos (0 – 9) e caracteres especiais.
- *Pode conter ponto (.) desde que não
- *seja o primeiro ou o último caracter. O domínio pode conter letras
- *(A – Z a – z); dígitos (0 – 9), desde que o domínio não seja só
- *numérico; – (hífen), desde que não seja o primeiro ou o último
- *caracter.
- * @param email eh a palavra que se deseja validar
- * @return retorna se o email indicado eh valido
- */
-bool Email::validar(string email){
-    bool val = true;
+
+void Email::validar(string email){
     int indice2 = email.find('@',0);
     if(indice2 == -1){
-        val = false;
         throw  1;
     }
     bool letra = false;
     //nao pode conter pontos no comeco ou no final
     if(email[0] == '.' || email[indice2 - 1] == '.'){
-        val = false;
         throw  2;
     }
     //nao pode conter hifen no comeco nem final do dominio
     if(email[indice2+1] == '-' || email[email.length()-1] == '-'){
-        val = false;
         throw  3;
     }
     //Nao pode conter só numeros
@@ -248,37 +179,25 @@ bool Email::validar(string email){
         if(isalpha(email[indice]))
                 letra = true;
         if(!isalpha(email[indice]) && !isdigit(email[indice]) && email[indice]!='.'){
-            val = false;
             throw  4;
         }
     }
     if (letra == false){
-        val = false;
         throw  5;
     }
-    return val;
 }
 //-------------------------------------------------------------------------
 
 
 //Métodos da Classe Senha
-/**
- *Contém oito caracteres, que podem ser letras (A – Z a – z) ou
- *dígitos (0 a 9). Cada senha precisa conter, pelo menos, uma letra
- *maiúscula, uma letra minúscula e um dígito.
- * @param senha eh a palavra que se deseja validar
- * @return retorna se a senha indicado eh valido
- */
-bool Senha::validar(string senha){
-    bool val = true;
+
+void Senha::validar(string senha){
     bool maiuscula = false,minuscula = false,numero = false;
     if(senha.length() != 8 ){
-        val = false;
         throw 1;
     }
     for(int indice = 0; indice < senha.length() - 1; indice++){
         if (!isalpha(senha[indice]) && !isdigit(senha[indice])){
-            val = false;
             throw 2;
         }
         if(islower(senha[indice])){
@@ -292,68 +211,38 @@ bool Senha::validar(string senha){
         }
     }
     if(!numero || !minuscula || !maiuscula){
-        val = false;
         throw 3;
     }
-    return val;
 }
 //------------------------------------------------------------------------
 
 
 //Métodos da Classe Texto
-/**
- * Contem de 1 a 30 caracteres
- * @param texto eh a palavra que se deseja validar
- * @return retorna se o textoindicado eh valido
- */
-bool Texto::validar(string texto){
-    bool val = true;
+
+void Texto::validar(string texto){
     if(texto.length() > 30){
-        val = false;
         throw 1;
     }
-    return val;
 }
 //------------------------------------------------------------------------
 
 
 //Métodos da Classe Idioma
-/**
- *Contém oito caracteres, que podem ser letras (A – Z a – z) ou
- *dígitos (0 a 9). Cada senha precisa conter, pelo menos, uma letra
- *maiúscula, uma letra minúscula e um dígito.
- * @param senha eh a palavra que se deseja validar
- * @return retorna se a senha indicado eh valido
- */
-/**
- *Precisa ser um desses idiomas:ENG (inglês), FRA (francês), GER (alemão), ITA (italiano), POR
- *(português) e SPA (espanhol).
- * @param idioma eh a palavra que se deseja validar
- * @return retorna se o idioma indicado eh valido
-*/
-bool Idioma::validar(string idioma){
-    bool val = true;
+
+
+void Idioma::validar(string idioma){
     if(idioma != "ENG" && idioma != "FRA" && idioma != "GER" && idioma != "ITA" && idioma != "POR" && idioma != "SPA"){
-        val = false;
         throw 1;
     }
-    return val;
 }
 //------------------------------------------------------------------------
 
 
 //Métodos da Classe Termos
-/**
- *Precisa ser PT (preferred term) ou NP (non preferred term)
- * @param termo eh a palavra que se deseja validar
- * @return retorna se o termo indicado eh valido
-*/
-bool Termo::validar(string termo){
-    bool val = true;
+
+void Termo::validar(string termo){
     if(termo != "PT" && termo != "NP"){
-        val = false;
         throw 1;
     }
-    return val;
 }
 //----------------------------------------------------------------------
