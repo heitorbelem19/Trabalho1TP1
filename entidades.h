@@ -3,7 +3,7 @@
 #include "dominio.h"
 #include <iostream>
 #include <string.h>
-#include<cctype>
+#include <cctype>
 
 /**
  *  Uma classe Leitor que utiliza dos possui um nome,sobrenome,senha,email.
@@ -14,13 +14,11 @@ private:
     Sobrenome sobrenome;
     Senha senha;
     Email email;
-    bool CheckSubstring(string firstString,string secondString);
+    void CheckSubstring(string firstString,string secondString);
 public:
     Leitor();
-    bool Criar_leitor(string nome,string sobrenome,string email, string senha);
+    void Criar_leitor(string nome,string sobrenome,string email, string senha);
 };
-
-
 /**
  *  Igual a classe Leitor porem possui um dominio data a mais
  */
@@ -29,10 +27,8 @@ private:
     Data data;
 public:
     Desenvolvedor();
-    bool Criar_desenvolvedor(string nome,string sobrenome,string email, string senha, string data);
+    void Criar_desenvolvedor(string nome,string sobrenome,string email, string senha, string data);
 };
-
-
 /**
  *  Igual a classe desenvolvedor porem possui os dominios telefone e endereco a mais
  */
@@ -42,11 +38,8 @@ private:
         Endereco endereco;
 public:
     Administrador();
-    bool Criar_administrador(string nome,string sobrenome,string email, string senha, string data, string telefone, string endereco);
-
+    void Criar_administrador(string nome,string sobrenome,string email, string senha, string data, string telefone, string endereco);
 };
-
-
 /**
  *  Uma classe vocabulario que possui os dominios Nome Idioma e Data.
  */
@@ -57,10 +50,8 @@ private:
     Data data;
 public:
     Vocabulario();
-    bool Criar_vocabulario(string nome, string idioma, string data);
+    void Criar_vocabulario(string nome, string idioma, string data);
 };
-
-
 /**
  *  Uma classe EntidadedeTermo que  possui um Nome,Termo e Data.
  */
@@ -71,10 +62,8 @@ private:
     Data data;
 public:
     EntidadeTermo();
-    bool Criar_termo(string nome,string termo, string data);
+    void Criar_termo(string nome,string termo, string data);
 };
-
-
 /**
  *  Uma classe Definicao que  possui um Texto e uma Data.
  */
@@ -84,8 +73,6 @@ private:
     Data data;
 public:
     Definicao();
-    bool Criar_definicao(string texto, string data);
+    void Criar_definicao(string texto, string data);
 };
-
-
 #endif // _ENTIDADES_H_INCLUDED
